@@ -6,10 +6,10 @@ const StyledButton = styled(MUIButton)(theme.typography.button);
 const Button = ({
     variant = 'contained',
     children,
-    ...rest
+    ...props
 }: ButtonProps) => {
     return (
-        <StyledButton variant={variant}  {...rest}>
+        <StyledButton variant={variant}  {...props}>
             {children}
         </StyledButton>
     );
