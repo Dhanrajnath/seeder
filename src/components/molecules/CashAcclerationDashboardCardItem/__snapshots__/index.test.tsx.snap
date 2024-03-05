@@ -1,0 +1,45 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`DashboardCardItem test renders card item 1`] = `
+<div
+  class="MuiBox-root css-11ctgz"
+>
+  <div
+    class="MuiBox-root css-uldm2x"
+  >
+    <img
+      alt="12 months"
+      height="inherit"
+      src="calendar.svg"
+      width="inherit"
+    />
+  </div>
+  <div
+    class="MuiBox-root css-7dey8k"
+  >
+    <p
+      class="MuiTypography-root MuiTypography-body1 css-1jvmuot-MuiTypography-root"
+    >
+      Term cap
+    </p>
+    <span
+      aria-label="Term cap"
+      class=""
+      data-mui-internal-clone-element="true"
+      style="padding-top: 8px;"
+    >
+      <img
+        alt="Term cap"
+        height="inherit"
+        src="info.svg"
+        width="inherit"
+      />
+    </span>
+  </div>
+  <h1
+    class="MuiTypography-root MuiTypography-h1 css-1q5a4v6-MuiTypography-root"
+  >
+    12 months
+  </h1>
+</div>
+`;

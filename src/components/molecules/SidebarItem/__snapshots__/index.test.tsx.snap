@@ -1,0 +1,23 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`SidebarItem test renders correctly 1`] = `
+<div
+  class="MuiBox-root css-192sh95"
+>
+  <img
+    alt="Cash accleration"
+    height="24"
+    src="coin-active.svg"
+    width="24"
+  />
+  <span
+    style="color: rgb(232, 231, 240); padding-left: 12px;"
+  >
+    <span
+      class="MuiTypography-root MuiTypography-button css-13oj0q8-MuiTypography-root"
+    >
+      Cash accleration
+    </span>
+  </span>
+</div>
+`;
