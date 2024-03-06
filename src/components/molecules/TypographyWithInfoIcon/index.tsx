@@ -23,10 +23,10 @@ const TypographyWithInfoIcon = ({ title, isHeading }: ITypographyWithInfoIconPro
             <Typography
                 variant={isHeading ? "h1" : "body1"}
                 children={title}
+                color={isHeading ? theme.palette.text.primary : theme.palette.text.secondary}
                 sx={{
                     pl: 1,
                     pr: 2,
-                    color: isHeading ? theme.palette.text.primary : theme.palette.text.secondary
                 }}
             />
             <Tooltip title={title} placement="right">

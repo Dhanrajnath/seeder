@@ -1,13 +1,13 @@
 import { Meta, StoryObj } from "@storybook/react";
-import MyContractsTable, { IMyContractsTableProps } from ".";
+import Table, { ITableProps } from ".";
 import { myContractsTableColumnLabels, myContractsTableData } from "../../../utils/myContracts";
 
 export default {
-    title: 'Molecules/MyContractsTable',
-    component: MyContractsTable,
+    title: 'Molecules/Table',
+    component: Table,
 } as Meta;
 
-type MyContractsTableType = StoryObj<IMyContractsTableProps>;
+type MyContractsTableType = StoryObj<ITableProps>;
 
 
 export const MyContracts: MyContractsTableType = {

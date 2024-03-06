@@ -1,16 +1,16 @@
-import { Grid, Table, TableBody, TableCell, TableHead, TableRow } from "@mui/material";
+import { Grid, Table as MUITable, TableBody, TableCell, TableHead, TableRow } from "@mui/material";
 import theme from "../../../utils/theme";
 import Typography from "../../atoms/Typography";
 import { IMyContractsTableColumnLabels, IMyContractsTableDataDetail } from "../../../utils/myContracts";
 
-export interface IMyContractsTableProps {
+export interface ITableProps {
     tableColumns: IMyContractsTableColumnLabels[];
     tableData: IMyContractsTableDataDetail[];
 };
 
-const MyContractsTable = ({ tableColumns, tableData }: IMyContractsTableProps) => {
+const Table = ({ tableColumns, tableData }: ITableProps) => {
     return (
-        <Table
+        <MUITable
             sx={{
                 width: theme.spacing(249),
                 height: theme.spacing(42),
@@ -19,7 +19,7 @@ const MyContractsTable = ({ tableColumns, tableData }: IMyContractsTableProps) =
         >
             <TableHead sx={{ height: theme.spacing(11) }}>
                 <TableRow>
-                    {tableColumns.map((element, index) => (
+                    {tableColumns.map((column) => (
                         <TableCell
                             variant="head"
                             align="left"
@@ -27,13 +27,13 @@ const MyContractsTable = ({ tableColumns, tableData }: IMyContractsTableProps) =
                             sx={{
                                 pl: theme.spacing(9),
                             }}
-                            key={index}
+                            key={column.column}
                         >
                             <Typography
                                 variant="body2"
                                 sx={{ color: theme.palette.text.disabled }}
                             >
-                                {element.label}
+                                {column.label}
                             </Typography>
                         </TableCell>
                     ))}
@@ -42,119 +42,67 @@ const MyContractsTable = ({ tableColumns, tableData }: IMyContractsTableProps) =
             <TableBody>
                 {tableData.map((element, index) => (
                     <TableRow key={index} sx={{ height: theme.spacing(15) }}>
-                        <TableCell
-                            variant="body"
-                            align="left"
-                            sx={{
-                                pl: theme.spacing(9),
-                            }}
-                        >
-                            <Grid container>
-                                <Grid item>
-                                    <Typography
-                                        variant="body2"
-                                        sx={{ color: theme.palette.text.primary }}
-                                    >
-                                        {element.Name}
-                                    </Typography>
-                                </Grid>
-                            </Grid>
-                        </TableCell>
-                        <TableCell
-                            variant="body"
-                            align="left"
-                            sx={{
-                                pl: theme.spacing(9),
-                            }}
-                        >
-                            <Grid container>
-                                <Grid item>
-                                    <Typography
-                                        variant="body2"
-                                        sx={{ color: theme.palette.text.disabled }}
-                                    >
-                                        {element.Type}
-                                    </Typography>
-                                </Grid>
-                            </Grid>
-                        </TableCell>
-                        <TableCell
-                            variant="body"
-                            align="left"
-                            sx={{
-                                pl: theme.spacing(9),
-                            }}
-                        >
-                            <Grid container>
-                                <Grid item>
-                                    <Typography
-                                        variant="body2"
-                                        sx={{ color: theme.palette.text.disabled }}
-                                    >
-                                        {element.perPayment}
-                                    </Typography>
-                                </Grid>
-                            </Grid>
-                        </TableCell>
-                        <TableCell
-                            variant="body"
-                            align="left"
-                            sx={{
-                                pl: theme.spacing(9),
-                            }}
-                        >
-                            <Grid container display="flex" flexDirection="column">
-                                <Grid item>
-                                    <Typography
-                                        variant="body2"
-                                        sx={{ color: theme.palette.text.disabled }}
-                                    >
-                                        {element.termLength}
-                                    </Typography>
-                                </Grid>
-                                <Grid item>
-                                    <Typography
-                                        variant="caption"
-                                        sx={{ color: theme.palette.text.disabled }}
-                                    >
-                                        {element.termLengthPercentage}
-                                    </Typography>
-                                </Grid>
-                            </Grid>
-                        </TableCell>
-                        <TableCell
-                            variant="body"
-                            align="left"
-                            sx={{
-                                pl: theme.spacing(9),
-                            }}
-                        >
-                            <Grid container display="flex" flexDirection="column">
-                                <Grid item>
-                                    <Typography
-                                        variant="body2"
-                                        sx={{ color: theme.palette.text.disabled }}
-                                    >
-                                        {element.paymentAmount}
-                                    </Typography>
-                                </Grid>
-                                {element.paymentAmountDiscount &&
+                        {Object.values(element).map((element, i) => (
+                            <TableCell
+                                key={i}
+                                variant="body"
+                                align="left"
+                                sx={{
+                                    pl: theme.spacing(9),
+                                }}
+                            >
+                                <Grid container>
                                     <Grid item>
-                                        <Typography
-                                            variant="caption"
-                                            sx={{ color: theme.palette.text.disabled, textDecoration: "line-through" }}
-                                        >
-                                            {element.paymentAmountDiscount}
-                                        </Typography>
+                                        {typeof element === 'object' ?
+                                            <>
+                                                <Typography
+                                                    variant="body2"
+                                                    color={
+                                                        i === 0 ?
+                                                            theme.palette.text.primary
+                                                            : theme.palette.text.disabled}
+                                                >
+                                                    {element?.value}
+                                                </Typography>
+                                                {element?.percentage ?
+                                                    <Typography
+                                                        variant="caption"
+                                                        color={theme.palette.text.disabled}
+                                                    >
+                                                        {element?.percentage}
+                                                    </Typography>
+                                                    :
+                                                    <Typography
+                                                        variant="caption"
+                                                        sx={{
+                                                            color: theme.palette.text.disabled,
+                                                            textDecoration: "line-through"
+                                                        }}
+                                                    >
+                                                        {element?.discount}
+                                                    </Typography>
+                                                }
+                                            </>
+                                            :
+                                            <Typography
+                                                variant="body2"
+                                                color={
+                                                    i === 0 ?
+                                                        theme.palette.text.primary
+                                                        : theme.palette.text.disabled}
+                                            >
+                                                {element}
+                                            </Typography>
+                                        }
                                     </Grid>
-                                }
-                            </Grid>
-                        </TableCell>
+                                </Grid>
+                            </TableCell>
+                        ))}
                     </TableRow>
                 ))}
             </TableBody>
-        </Table>
+        </MUITable>
     );
 };
 
-export default MyContractsTable;
+export default Table;

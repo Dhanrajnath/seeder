@@ -9,14 +9,16 @@ describe('Avatar tests', () => {
     });
 
     it('renders Avatar with image as prop and should match the snapshot', () => {
-        const { container } = render(<Avatar isImage={true} variant="circular" alt="Profile Pic" src={AvatarSvg} />);
-
+        const { container, getByAltText } = render(<Avatar isImage={true} variant="circular" alt="Profile Pic" src={AvatarSvg} />);
+        const avatar = getByAltText('Profile Pic');
+        expect(avatar).toBeInTheDocument();
         expect(container.firstChild).toMatchSnapshot();
     });
 
     it('renders Avatar without image and with children', () => {
-        const { container } = render(<Avatar isImage={false} variant="circular" children="ABC" />);
-
+        const { container, getByText } = render(<Avatar isImage={false} variant="circular" children="ABC" />);
+        const avatar = getByText('ABC');
+        expect(avatar).toBeInTheDocument();
         expect(container.firstChild).toMatchSnapshot();
-    })
+    });
 });

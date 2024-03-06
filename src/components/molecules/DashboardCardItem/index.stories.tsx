@@ -5,7 +5,7 @@ import DocumentDownloadSvg from "../../../../public/assets/document-download.svg
 import PercentageSquareSvg from "../../../../public/assets/percentage-square.svg";
 
 export default {
-    title: 'Molecules/CashAcclerationDashboardCard',
+    title: 'Molecules/DashboardCardItem',
     component: DashboardCardItem,
 } as Meta;
 
