@@ -1,11 +1,11 @@
 import { Grid, Table as MUITable, TableBody, TableCell, TableHead, TableRow } from "@mui/material";
 import theme from "../../../utils/theme";
 import Typography from "../../atoms/Typography";
-import { IMyContractsTableColumnLabels, IMyContractsTableDataDetail } from "../../../utils/myContracts";
+import { ITableColumnLabels, IMyContractsTableDataDetail, IMyCashkicksTableDataDetail } from "../../../utils/myContracts";
 
 export interface ITableProps {
-    tableColumns: IMyContractsTableColumnLabels[];
-    tableData: IMyContractsTableDataDetail[];
+    tableColumns: ITableColumnLabels[];
+    tableData: IMyContractsTableDataDetail[] | IMyCashkicksTableDataDetail[];
 };
 
 const Table = ({ tableColumns, tableData }: ITableProps) => {
@@ -13,7 +13,7 @@ const Table = ({ tableColumns, tableData }: ITableProps) => {
         <MUITable
             sx={{
                 width: theme.spacing(249),
-                height: theme.spacing(42),
+                maxHeight: theme.spacing(27),
                 background: theme.palette.common.black
             }}
         >
