@@ -1,11 +1,9 @@
-import './App.css';
+import HomePage from "./components/pages/HomePage";
 
-function App() {
+const App = () => {
   return (
-    <div className="App">
-      <h2>Seeder App</h2>
-    </div>
+    <HomePage />
   );
-}
+};
 
 export default App;

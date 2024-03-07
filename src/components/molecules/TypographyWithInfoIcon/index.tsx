@@ -17,7 +17,7 @@ const TypographyWithInfoIcon = ({ title, isHeading }: ITypographyWithInfoIconPro
             alignItems="center"
             justifyContent="flex-start"
             sx={{
-                background: theme.palette.background.paper
+                background: theme.palette.background.default
             }}
         >
             <Typography

@@ -18,7 +18,7 @@ const StyledOuterBox = styled(Box)({
     width: theme.spacing(51),
     height: theme.spacing(42),
     gap: theme.spacing(2),
-    background: theme.palette.background.paper
+    background: theme.palette.background.default
 });
 
 const StyledInnerBox = styled(Box)({

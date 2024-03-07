@@ -13,13 +13,14 @@ const Table = ({ tableColumns, tableData }: ITableProps) => {
         <MUITable
             sx={{
                 maxHeight: theme.spacing(27),
-                background: theme.palette.common.black
+                background: theme.palette.background.default
             }}
         >
             <TableHead
                 sx={{
                     height: theme.spacing(11),
-                    background: theme.palette.background.default
+                    background: theme.palette.common.black,
+                    borderRadius: `${theme.spacing(5000)}`
                 }}
             >
                 <TableRow>

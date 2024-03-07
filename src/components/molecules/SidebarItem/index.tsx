@@ -25,7 +25,7 @@ const SidebarItem = ({ id, iconPath, itemName, isActive, onClick }: ISidebarItem
                 padding: theme.spacing(4),
                 gap: theme.spacing(3),
                 borderRadius: theme.spacing(3),
-                background: isActive ? theme.palette.background.default : theme.palette.background.paper,
+                background: isActive ? theme.palette.background.paper : theme.palette.background.default,
                 cursor: 'pointer'
             }}
             display="flex"
