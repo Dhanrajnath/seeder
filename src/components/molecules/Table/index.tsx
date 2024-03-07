@@ -12,12 +12,16 @@ const Table = ({ tableColumns, tableData }: ITableProps) => {
     return (
         <MUITable
             sx={{
-                width: theme.spacing(249),
                 maxHeight: theme.spacing(27),
                 background: theme.palette.common.black
             }}
         >
-            <TableHead sx={{ height: theme.spacing(11) }}>
+            <TableHead
+                sx={{
+                    height: theme.spacing(11),
+                    background: theme.palette.background.default
+                }}
+            >
                 <TableRow>
                     {tableColumns.map((column) => (
                         <TableCell
@@ -26,6 +30,7 @@ const Table = ({ tableColumns, tableData }: ITableProps) => {
                             width="20%"
                             sx={{
                                 pl: theme.spacing(9),
+                                borderBottom: 0
                             }}
                             key={column.column}
                         >
@@ -49,6 +54,7 @@ const Table = ({ tableColumns, tableData }: ITableProps) => {
                                 align="left"
                                 sx={{
                                     pl: theme.spacing(9),
+                                    borderBottom: 0
                                 }}
                             >
                                 <Grid container>

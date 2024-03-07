@@ -67,3 +67,6 @@ export const myCashkicksTableData: IMyCashkicksTableDataDetail[] = [
         totalFinanced: "$170,454,55"
     }
 ];
+
+export const MY_CONTRACTS = "My Contracts";
+export const MY_CASH_KICKS = "My Cash Kicks";
