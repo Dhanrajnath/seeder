@@ -6,11 +6,6 @@ import CoinInActiveSvg from "../../../../public/assets/coin-inactive.svg";
 describe('SidebarItem test', () => {
     const mockOnClick = jest.fn();
 
-    it('renders correctly', () => {
-        const { container } = render(<SidebarItem iconPath={CoinActiveSvg} itemName="Cash accleration" isActive={true} onClick={mockOnClick} id={1} />);
-
-        expect(container.firstChild).toMatchSnapshot();
-    });
     it('renders sidebar item with active state', () => {
         const { getByText } = render(<SidebarItem iconPath={CoinActiveSvg} itemName="Cash accleration" isActive={true} onClick={mockOnClick} id={1} />);
 

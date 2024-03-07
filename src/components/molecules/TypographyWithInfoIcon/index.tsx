@@ -30,7 +30,7 @@ const TypographyWithInfoIcon = ({ title, isHeading }: ITypographyWithInfoIconPro
                 }}
             />
             <Tooltip title={title} placement="right">
-                <span style={{ paddingTop: theme.spacing(2) }}>
+                <span style={{ paddingTop: theme.spacing() }}>
                     <IconFromSvg alt={title} path={InfoSvg} />
                 </span>
             </Tooltip>

@@ -13,7 +13,7 @@ exports[`TypographyWihtInfoIcon test renders with title and info icon 1`] = `
     aria-label="Term cap"
     class=""
     data-mui-internal-clone-element="true"
-    style="padding-top: 8px;"
+    style="padding-top: 4px;"
   >
     <img
       alt="Term cap"
