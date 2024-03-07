@@ -1,7 +1,7 @@
 import { Grid, Table as MUITable, TableBody, TableCell, TableHead, TableRow } from "@mui/material";
 import theme from "../../../utils/theme";
 import Typography from "../../atoms/Typography";
-import { ITableColumnLabels, IMyContractsTableDataDetail, IMyCashkicksTableDataDetail } from "../../../utils/myContracts";
+import { ITableColumnLabels, IMyContractsTableDataDetail, IMyCashkicksTableDataDetail } from "../../../utils/cashAcclerationTable";
 
 export interface ITableProps {
     tableColumns: ITableColumnLabels[];

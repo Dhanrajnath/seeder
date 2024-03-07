@@ -4,23 +4,29 @@ import theme from "../../../utils/theme";
 import Typography from "../../atoms/Typography";
 
 export interface ISidebarItemProps {
+    id: number;
     iconPath: string;
     itemName: string;
     isActive: boolean;
-    onClick?: () => void
+    onClick?: (key: number) => void
 };
 
-const SidebarItem = ({ iconPath, itemName, isActive, onClick }: ISidebarItemProps) => {
+const SidebarItem = ({ id, iconPath, itemName, isActive, onClick }: ISidebarItemProps) => {
+    const clickHandler = () => {
+        onClick!(id);
+    };
+
     return (
         <Box
-            onClick={onClick}
+            key={id}
+            onClick={clickHandler}
             sx={{
-                width: theme.spacing(52),
-                height: theme.spacing(12),
+                height: theme.spacing(10),
                 padding: theme.spacing(4),
                 gap: theme.spacing(3),
                 borderRadius: theme.spacing(3),
-                background: isActive ? theme.palette.background.paper : theme.palette.background.default
+                background: isActive ? theme.palette.background.default : theme.palette.background.paper,
+                cursor: 'pointer'
             }}
             display="flex"
             flexDirection="row"

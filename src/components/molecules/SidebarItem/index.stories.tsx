@@ -14,33 +14,36 @@ type SidebarItemType = StoryObj<ISidebarItemProps>;
 
 export const Home: SidebarItemType = {
     args: {
+        id: 1,
         itemName: "Home",
         iconPath: HomeInActiveSvg,
         isActive: false,
-        onClick: () => {
-            console.log("clicked sidebar item");
+        onClick: (id: number) => {
+            console.log("clicked sidebar item id:", id);
         }
     }
 };
 
 export const CashAcclerationInactive: SidebarItemType = {
     args: {
+        id: 2,
         itemName: "Cash Accleration",
         iconPath: CoinInActiveSvg,
         isActive: false,
-        onClick: () => {
-            console.log("clicked sidebar item");
+        onClick: (id: number) => {
+            console.log("clicked sidebar item id:", id);
         }
     }
 };
 
 export const CashAcclerationActive: SidebarItemType = {
     args: {
+        id: 2,
         itemName: "Cash Accleration",
         iconPath: CoinActiveSvg,
         isActive: true,
-        onClick: () => {
-            console.log("clicked sidebar item");
+        onClick: (id: number) => {
+            console.log("clicked sidebar item id:", id);
         }
     }
 };

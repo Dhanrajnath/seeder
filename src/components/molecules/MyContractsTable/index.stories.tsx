@@ -1,6 +1,6 @@
 import { Meta, StoryObj } from "@storybook/react";
 import Table, { ITableProps } from ".";
-import { myCashkicksTableColumnLabels, myCashkicksTableData, myContractsTableColumnLabels, myContractsTableData } from "../../../utils/myContracts";
+import { myCashkicksTableColumnLabels, myCashkicksTableData, myContractsTableColumnLabels, myContractsTableData } from "../../../utils/cashAcclerationTable";
 
 export default {
     title: 'Molecules/Table',
