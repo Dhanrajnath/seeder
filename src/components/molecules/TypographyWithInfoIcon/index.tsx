@@ -10,7 +10,7 @@ export interface ITypographyWithInfoIconProps {
 };
 
 const StyledBox = styled(Box)({
-    background: theme.palette.background.paper
+    background: theme.palette.background.default
 });
 
 const StyledTypography = styled(Typography)({

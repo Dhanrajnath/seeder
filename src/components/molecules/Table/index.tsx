@@ -10,12 +10,12 @@ export interface ITableProps {
 
 const StyledMUITable = styled(MUITable)({
     maxHeight: theme.spacing(27),
-    background: theme.palette.background.paper
+    background: theme.palette.background.default
 });
 
 const StyledTableHead = styled(TableHead)({
     height: theme.spacing(11),
-    background: theme.palette.background.default
+    background: theme.palette.background.paper
 });
 
 const StyledTableCell = styled(TableCell)({
