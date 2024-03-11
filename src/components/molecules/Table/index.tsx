@@ -1,4 +1,4 @@
-import { Grid, Table as MUITable, TableBody, TableCell, TableHead, TableRow, styled } from "@mui/material";
+import { Grid, Table as MUITable, TableBody, TableCell, TableContainer, TableHead, TableRow, styled } from "@mui/material";
 import theme from "../../../utils/theme";
 import Typography from "../../atoms/Typography";
 import { ITableColumnLabels, IMyContractsTableDataDetail, IMyCashkicksTableDataDetail } from "../../../utils/cashAcclerationTable";
@@ -8,14 +8,20 @@ export interface ITableProps {
     tableData: IMyContractsTableDataDetail[] | IMyCashkicksTableDataDetail[];
 };
 
+const StyledMUITableContainer = styled(TableContainer)({
+    maxHeight: theme.spacing(42),
+    '&::-webkit-scrollbar': {
+        display: 'none',
+    },
+});
+
 const StyledMUITable = styled(MUITable)({
-    maxHeight: theme.spacing(27),
-    background: theme.palette.background.paper
+    background: theme.palette.background.default
 });
 
 const StyledTableHead = styled(TableHead)({
     height: theme.spacing(11),
-    background: theme.palette.background.default
+    background: theme.palette.background.paper
 });
 
 const StyledTableCell = styled(TableCell)({
@@ -33,39 +39,66 @@ const StyledTableRow = styled(TableRow)({
 
 const Table = ({ tableColumns, tableData }: ITableProps) => {
     return (
-        <StyledMUITable>
-            <StyledTableHead>
-                <TableRow>
-                    {tableColumns.map((column) => (
-                        <StyledTableCell
-                            variant="head"
-                            align="left"
-                            width="20%"
-                            key={column.column}
-                        >
-                            <Typography
-                                variant="body2"
-                                color={theme.palette.text.disabled}
-                            >
-                                {column.label}
-                            </Typography>
-                        </StyledTableCell>
-                    ))}
-                </TableRow>
-            </StyledTableHead>
-            <TableBody>
-                {tableData.map((element, index) => (
-                    <StyledTableRow key={index}>
-                        {Object.values(element).map((element, i) => (
+        <StyledMUITableContainer>
+            <StyledMUITable stickyHeader>
+                <StyledTableHead>
+                    <TableRow>
+                        {tableColumns.map((column) => (
                             <StyledTableCell
-                                key={i}
-                                variant="body"
+                                variant="head"
                                 align="left"
+                                width="20%"
+                                key={column.column}
                             >
-                                <Grid container>
-                                    <Grid item>
-                                        {typeof element === 'object' ?
-                                            <>
+                                <Typography
+                                    variant="body2"
+                                    color={theme.palette.text.disabled}
+                                >
+                                    {column.label}
+                                </Typography>
+                            </StyledTableCell>
+                        ))}
+                    </TableRow>
+                </StyledTableHead>
+                <TableBody>
+                    {tableData.map((element, index) => (
+                        <StyledTableRow key={index}>
+                            {Object.values(element).map((element, i) => (
+                                <StyledTableCell
+                                    key={i}
+                                    variant="body"
+                                    align="left"
+                                >
+                                    <Grid container>
+                                        <Grid item>
+                                            {typeof element === 'object' ?
+                                                <>
+                                                    <Typography
+                                                        variant="body2"
+                                                        color={
+                                                            i === 0 ?
+                                                                theme.palette.text.primary
+                                                                : theme.palette.text.disabled}
+                                                    >
+                                                        {element?.value}
+                                                    </Typography>
+                                                    {element?.percentage ?
+                                                        <Typography
+                                                            variant="caption"
+                                                            color={theme.palette.text.disabled}
+                                                        >
+                                                            {element?.percentage}
+                                                        </Typography>
+                                                        :
+                                                        <StyledTypography
+                                                            variant="caption"
+                                                            color={theme.palette.text.disabled}
+                                                        >
+                                                            {element?.discount}
+                                                        </StyledTypography>
+                                                    }
+                                                </>
+                                                :
                                                 <Typography
                                                     variant="body2"
                                                     color={
@@ -73,43 +106,18 @@ const Table = ({ tableColumns, tableData }: ITableProps) => {
                                                             theme.palette.text.primary
                                                             : theme.palette.text.disabled}
                                                 >
-                                                    {element?.value}
+                                                    {element}
                                                 </Typography>
-                                                {element?.percentage ?
-                                                    <Typography
-                                                        variant="caption"
-                                                        color={theme.palette.text.disabled}
-                                                    >
-                                                        {element?.percentage}
-                                                    </Typography>
-                                                    :
-                                                    <StyledTypography
-                                                        variant="caption"
-                                                        color={theme.palette.text.disabled}
-                                                    >
-                                                        {element?.discount}
-                                                    </StyledTypography>
-                                                }
-                                            </>
-                                            :
-                                            <Typography
-                                                variant="body2"
-                                                color={
-                                                    i === 0 ?
-                                                        theme.palette.text.primary
-                                                        : theme.palette.text.disabled}
-                                            >
-                                                {element}
-                                            </Typography>
-                                        }
+                                            }
+                                        </Grid>
                                     </Grid>
-                                </Grid>
-                            </StyledTableCell>
-                        ))}
-                    </StyledTableRow>
-                ))}
-            </TableBody>
-        </StyledMUITable>
+                                </StyledTableCell>
+                            ))}
+                        </StyledTableRow>
+                    ))}
+                </TableBody>
+            </StyledMUITable>
+        </StyledMUITableContainer>
     );
 };
 
