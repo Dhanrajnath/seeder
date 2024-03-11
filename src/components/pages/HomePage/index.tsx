@@ -12,6 +12,7 @@ import { newCashkick } from '../../../utils/newCashKick';
 import CashAcclerationTable from '../../organisms/CashAcclerationTable';
 import { myCashkicksTableColumnLabels, myCashkicksTableData, myContractsTableColumnLabels, myContractsTableData } from '../../../utils/cashAcclerationTable';
 import theme from '../../../utils/theme';
+import { headerData } from '../../../utils/header';
 
 const HomePage = () => {
     return (
@@ -23,8 +24,8 @@ const HomePage = () => {
             }
             header={
                 <Header
-                    title="Cash accleration"
-                    description="Place to create new cash kicks to run business"
+                    title={headerData.title}
+                    description={headerData.description}
                     avatarPath={AvatarSvg}
                 />
             }

@@ -1,5 +1,4 @@
-import { Box, Grid } from "@mui/material";
-import styled from "styled-components";
+import { Grid, styled } from "@mui/material";
 import theme from "../../../utils/theme";
 import DashboardCardItem, { IDashboardCardItemProps } from "../../molecules/DashboardCardItem";
 
@@ -7,9 +6,13 @@ export interface IDashboardProps {
     cardItems: IDashboardCardItemProps[];
 };
 
+const StyledGrid = styled(Grid)({
+    background: theme.palette.background.default
+});
+
 const Dashboard = ({ cardItems }: IDashboardProps) => {
     return (
-        <Grid
+        <StyledGrid
             container
             direction="row"
             justifyContent="space-around"
@@ -29,7 +32,7 @@ const Dashboard = ({ cardItems }: IDashboardProps) => {
                     <DashboardCardItem icon={cardItem.icon} infoText={cardItem.infoText} title={cardItem.title} />
                 </Grid>
             ))}
-        </Grid>
+        </StyledGrid>
     );
 };
 
