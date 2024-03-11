@@ -23,9 +23,6 @@ const Dashboard = ({ cardItems }: IDashboardProps) => {
             padding={theme.spacing(8)}
             gap={theme.spacing(3)}
             borderRadius={theme.spacing(3)}
-            sx={{
-                background: theme.palette.background.default
-            }}
         >
             {cardItems.map((cardItem, index) => (
                 <Grid item key={index}>
