@@ -1,4 +1,4 @@
-import { Grid, Table as MUITable, TableBody, TableCell, TableHead, TableRow } from "@mui/material";
+import { Grid, Table as MUITable, TableBody, TableCell, TableHead, TableRow, styled } from "@mui/material";
 import theme from "../../../utils/theme";
 import Typography from "../../atoms/Typography";
 import { ITableColumnLabels, IMyContractsTableDataDetail, IMyCashkicksTableDataDetail } from "../../../utils/cashAcclerationTable";
@@ -8,54 +8,59 @@ export interface ITableProps {
     tableData: IMyContractsTableDataDetail[] | IMyCashkicksTableDataDetail[];
 };
 
+const StyledMUITable = styled(MUITable)({
+    maxHeight: theme.spacing(27),
+    background: theme.palette.background.paper
+});
+
+const StyledTableHead = styled(TableHead)({
+    height: theme.spacing(11),
+    background: theme.palette.background.default
+});
+
+const StyledTableCell = styled(TableCell)({
+    paddingLeft: theme.spacing(9),
+    borderBottom: 0
+});
+
+const StyledTypography = styled(Typography)({
+    textDecoration: "line-through"
+});
+
+const StyledTableRow = styled(TableRow)({
+    height: theme.spacing(15)
+});
+
 const Table = ({ tableColumns, tableData }: ITableProps) => {
     return (
-        <MUITable
-            sx={{
-                maxHeight: theme.spacing(27),
-                background: theme.palette.background.paper
-            }}
-        >
-            <TableHead
-                sx={{
-                    height: theme.spacing(11),
-                    background: theme.palette.background.default
-                }}
-            >
+        <StyledMUITable>
+            <StyledTableHead>
                 <TableRow>
                     {tableColumns.map((column) => (
-                        <TableCell
+                        <StyledTableCell
                             variant="head"
                             align="left"
                             width="20%"
-                            sx={{
-                                pl: theme.spacing(9),
-                                borderBottom: 0
-                            }}
                             key={column.column}
                         >
                             <Typography
                                 variant="body2"
-                                sx={{ color: theme.palette.text.disabled }}
+                                color={theme.palette.text.disabled}
                             >
                                 {column.label}
                             </Typography>
-                        </TableCell>
+                        </StyledTableCell>
                     ))}
                 </TableRow>
-            </TableHead>
+            </StyledTableHead>
             <TableBody>
                 {tableData.map((element, index) => (
-                    <TableRow key={index} sx={{ height: theme.spacing(15) }}>
+                    <StyledTableRow key={index}>
                         {Object.values(element).map((element, i) => (
-                            <TableCell
+                            <StyledTableCell
                                 key={i}
                                 variant="body"
                                 align="left"
-                                sx={{
-                                    pl: theme.spacing(9),
-                                    borderBottom: 0
-                                }}
                             >
                                 <Grid container>
                                     <Grid item>
@@ -78,15 +83,12 @@ const Table = ({ tableColumns, tableData }: ITableProps) => {
                                                         {element?.percentage}
                                                     </Typography>
                                                     :
-                                                    <Typography
+                                                    <StyledTypography
                                                         variant="caption"
-                                                        sx={{
-                                                            color: theme.palette.text.disabled,
-                                                            textDecoration: "line-through"
-                                                        }}
+                                                        color={theme.palette.text.disabled}
                                                     >
                                                         {element?.discount}
-                                                    </Typography>
+                                                    </StyledTypography>
                                                 }
                                             </>
                                             :
@@ -102,12 +104,12 @@ const Table = ({ tableColumns, tableData }: ITableProps) => {
                                         }
                                     </Grid>
                                 </Grid>
-                            </TableCell>
+                            </StyledTableCell>
                         ))}
-                    </TableRow>
+                    </StyledTableRow>
                 ))}
             </TableBody>
-        </MUITable>
+        </StyledMUITable>
     );
 };
 
