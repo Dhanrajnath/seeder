@@ -1,0 +1,26 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`TypographyWihtInfoIcon test renders with title and info icon 1`] = `
+<div
+  class="MuiBox-root css-7dey8k"
+>
+  <p
+    class="MuiTypography-root MuiTypography-body1 css-1jvmuot-MuiTypography-root"
+  >
+    Term cap
+  </p>
+  <span
+    aria-label="Term cap"
+    class=""
+    data-mui-internal-clone-element="true"
+    style="padding-top: 4px;"
+  >
+    <img
+      alt="Term cap"
+      height="inherit"
+      src="info.svg"
+      width="inherit"
+    />
+  </span>
+</div>
+`;

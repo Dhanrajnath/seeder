@@ -1,0 +1,39 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Avatar tests renders Avatar with default props and should match the snapshot 1`] = `
+<div
+  class="MuiAvatar-root MuiAvatar-circular MuiAvatar-colorDefault css-17o22dy-MuiAvatar-root"
+>
+  <svg
+    aria-hidden="true"
+    class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium MuiAvatar-fallback css-10mi8st-MuiSvgIcon-root-MuiAvatar-fallback"
+    data-testid="PersonIcon"
+    focusable="false"
+    viewBox="0 0 24 24"
+  >
+    <path
+      d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z"
+    />
+  </svg>
+</div>
+`;
+
+exports[`Avatar tests renders Avatar with image as prop and should match the snapshot 1`] = `
+<div
+  class="MuiAvatar-root MuiAvatar-circular css-zc2ms7-MuiAvatar-root"
+>
+  <img
+    alt="Profile Pic"
+    class="MuiAvatar-img css-1pqm26d-MuiAvatar-img"
+    src="avatar.svg"
+  />
+</div>
+`;
+
+exports[`Avatar tests renders Avatar without image and with children 1`] = `
+<div
+  class="MuiAvatar-root MuiAvatar-circular MuiAvatar-colorDefault css-1tp6bdw-MuiAvatar-root"
+>
+  ABC
+</div>
+`;

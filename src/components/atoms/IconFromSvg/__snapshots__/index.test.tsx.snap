@@ -1,0 +1,10 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`IconFromSvg tests renders a svg img from path 1`] = `
+<img
+  alt="Seeder"
+  height="inherit"
+  src="seeder.svg"
+  width="inherit"
+/>
+`;
