@@ -55,6 +55,19 @@ export const myContractsTableData: IMyContractsTableDataDetail[] = [
         perPayment: '$6,000.00',
         termLength: { value: '12 months', percentage: '12.0% fee' },
         paymentAmount: { value: '$23,277.36', discount: '$63,380.00' },
+    }, {
+        Name: 'Contracts4',
+        Type: 'Monthly',
+        perPayment: '$12,000.25',
+        termLength: { value: '12 months', percentage: '12.0% fee' },
+        paymentAmount: { value: '$126,722.64' }
+    },
+    {
+        Name: 'Contracts5',
+        Type: 'Monthly',
+        perPayment: '$6,000.00',
+        termLength: { value: '12 months', percentage: '12.0% fee' },
+        paymentAmount: { value: '$23,277.36', discount: '$63,380.00' },
     }
 ];
 
